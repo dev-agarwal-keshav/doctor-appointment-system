@@ -1,0 +1,18 @@
+{%extends 'doctor/base.html'%}
+{%block body%}
+<div class="container">
+    <form action="/doctor/" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" >
+           
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>
+{%endblock%}

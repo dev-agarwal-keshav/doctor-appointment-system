@@ -1,0 +1,25 @@
+{%extends 'doctor/base.html'%}
+{%block body%}
+<div class="container my-4">
+    <p>Name: {{pat.fname}} {{pat.lname}}</p>
+    <p>Phone: {{pat.phone}}</p>
+    {% if record %}
+    <a href="/doctor/prev_rec/{{pat.id}}"><p>View Previous Records</p></a>
+    {% endif %}
+    <form action="/doctor/save/{{pat.id}}" method="post">{%csrf_token%}
+        <div class="form-group">
+            <label for="ail">Ailment</label>
+            <textarea class="form-control" id="ail" rows="4" name="ail"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="susp">Suspected</label>
+            <textarea class="form-control" id="susp" rows="4" name="susp"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="med">Medicine</label>
+            <textarea class="form-control" id="med" rows="4" name="med"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-warning">Submit</button>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,34 @@
+{%extends 'consult/base.html'%}
+{%block body%}
+<div class="container my-4">
+    <form action='/records' method="post">{% csrf_token %}
+        <div class="form-row align-items-center">
+            <div class="col">
+                <label for="patID">Patient ID</label>
+                <input type="text" class="form-control mb-2" id="patID" placeholder="Patient ID" name="patID">
+            </div>
+            <div class="col">
+                <label for="email">Email Address</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                    <input type="email" class="form-control" id="email" placeholder="Email Address" name="email">
+                </div>
+            </div>
+            <div class="form-group mb-2 mx-2">
+                <label for="appointfor">Appointment for</label>
+                <select id="appointfor" class="form-control" name="category" required>
+                    <option value="">Choose...</option>
+                    {%for i in field%}
+                    <option value="{{i}}">{{i}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mt-4">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,29 @@
+{%extends 'doctor/base.html'%}
+{%block body%}
+<div class="container my-4">
+    {%if sch%}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">PID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Timing</th>
+                <th scope="col">Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in sch%}
+            <tr>
+                <th scope="row">{{i.pid.id}}</th>
+                <td>{{i.pid.fname}} {{i.pid.lname}}</td>
+                <td>{{i.pid.email}}</td>
+                <td>{{i.timing}}</td>
+                <td><a href="checkup/{{i.pid.id}}">Check</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    {%endif%}
+</div>
+{%endblock%}

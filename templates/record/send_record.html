@@ -1,0 +1,10 @@
+{%autoescape off%}
+Hi {{pat.fname}},
+Your prescription from your latest visit to Dr. {{doctor.name}} dated {{record.date}} is:
+<b>Ailments:</b>
+{{record.ail}}
+<b>Suspects:</b>
+{{record.susp}}
+<b>Medicine:</b>
+{{record.med}}
+{%endautoescape%}

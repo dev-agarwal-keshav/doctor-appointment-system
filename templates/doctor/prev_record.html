@@ -1,0 +1,21 @@
+{%extends 'doctor/base.html'%}
+{%block body%}
+<div class="container my-4">
+	{%for i in rec%}
+    <div class="card border-primary mb-3">
+        <div class="card-header">{{i.patient.fname}}</div>
+        <div class="card-body ">
+            <h7 class="card-title">Ailment</h7>
+            <p class="card-text">{{i.ail}}</p>
+            <h7 class="card-title">Suspected</h7>
+            <p class="card-text">{{i.susp}}</p>
+            <h7 class="card-title">Medicine</h7>
+            <p class="card-text">{{i.med}}</p>
+        </div>
+        <div class="card-footer text-muted">
+            {{i.date}}
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
